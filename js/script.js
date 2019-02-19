@@ -155,7 +155,7 @@ function activityCreator() {
 function activityPost(activity, root) {
     let id = activity.type + new Date().getMilliseconds() + activity.logo;
     root.append(`<div data-atr="${id}" class="activity__item activity__item_type_${activity.type} ${id}"><h3 class="activity__item-title">${activity.title}</h3><p class="activity__item-text text text__type_small">${activity.message}</p><div class="activity__item-image" style="background-image: url(${activity.image})"></div><div class="activity__item-logo" style="background-image: url(${activity.logo})"></div><div class="js-autosend-popup"><span>Отправлено другим пользователем</span></div></div>`);
-    let timeToDie =  Math.random() * 20000 + 20000;
+    let timeToDie =  Math.random() * 60000 + 60000;
     let $activityElement = $(`.activity__item[data-atr="${id}"]`);
     if (model.isAutosendOn) {
         $(`.activity__item[data-atr="${id}"]`).addClass('js-item-autosend');
@@ -183,7 +183,7 @@ function addActivityToPage(num) {
         let activity = activityCreator();
         model.children <4 ? activityPost(activity, $activityRoot): null;
         timeout = setTimeout(f, Math.random() * 10000 + 10000 );
-    }, Math.random() * 20000 + 20000);
+    }, Math.random() * 60000 + 60000);
 
 }
 
